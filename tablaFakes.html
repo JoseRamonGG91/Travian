@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			table {
+				text-align: center;
+			}
+			td {
+				padding-right: 2px;
+				padding-left: 2px;
+			}
+			li {
+				background-color: pink;
+				font-size: 0.8em;
+				padding: 2px;
+			}
+			fieldset {
+				width: 500px;
+				float:left;
+				margin: 1%;
+			}
+			.titulo {
+				border:3px solid black;
+				border-left:1px solid red;
+				border-right:1px solid red;
+			}
+			.bordeLateral {
+				border-right: 4px solid red;
+				border-left: 4px solid red;;
+			}
+			.Ataque {
+				background-color: #C2B7B7;
+			}
+			.PosibleAtaque {
+				background-color: #7872D8;
+			}
+			.CriticoAtaque {
+				background-color: #F73E5F;
+			}
+		</style>
+		<script type="text/javascript" src="./funcionesTravian.js"></script>
+	</head>
+	<body>
+		<form onsubmit="return PresentarTabla();">
+			<table>
+				<tr>
+					<td class="titulo">Versión del server</td>
+					<td class="titulo">Velocidad del server</td>
+					<td class="titulo">Tu Aldea</td>
+					<td class="titulo">Aldea Enemiga</td>
+					<td class="titulo">Botas del heroe</td>
+					<td class="titulo">Hora de llegada</td> 
+					<td class="titulo">Intervalo</td>
+					<td class="titulo">Artefacto de botas</td>
+				</tr>
+				<tr>
+					<td class="bordeLateral">
+						<select id="Server">
+							<option value="1">T 4.4</option>
+							<option value="2">AE</option>
+						</select>
+					</td>
+					<td class="bordeLateral">
+						<select id="Velocidad">
+							<option value="1">x1</option>
+							<option value="2">x2</option>
+							<option value="3">x3</option>
+						</select>
+					</td>
+					<td class="bordeLateral">
+						<input type="text" placeholder="Coord X" size="4" id="CoordX1"/>
+						<input type="text" placeholder="Coord Y" size="4" id="CoordY1"/>
+					</td>
+					<td class="bordeLateral">
+						<input type="text" placeholder="Coord X" size="4" id="CoordX2"/>
+						<input type="text" placeholder="Coord Y" size="4" id="CoordY2"/>
+					</td>
+					<td class="bordeLateral">
+						<select id="Botas">
+							<option value="0"></option>
+							<option value="25">25%</option>
+							<option value="50">50%</option>
+							<option value="75">75%</option>
+						</select>
+					</td>
+					<td class="bordeLateral">
+						<input type="text" placeholder="Horas" size="4" id="Horas" />
+						<input type="text" placeholder="Minutos" size="2" id="Minutos" />
+						<input type="text" placeholder="Segundos" size="2" id="Segundos" />
+					</td>
+					<td class="bordeLateral">
+						<input type="text" placeholder="Horas" size="4" id="IntervaloH"/>
+						<input type="text" placeholder="Minutos" size="2" id="IntervaloM"/>
+						<input type="text" placeholder="Segundos" size="2" id="IntervaloS"/>
+					</td>
+					<td class="bordeLateral">
+						<select id="Artefacto">
+							<option value="1"></option>
+							<option value="1.5">x1.5</option>
+							<option value="2">x2</option>	
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="7">
+						<button type="submit">Calcular</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br />
+		<fieldset>
+			<legend><b>Indicaciones</b></legend>
+			<ul>
+				<li> Primera columna: Versión del server</li>
+				<li> Segunda columna: Velocidad del server</li>
+				<li> Tercera columna: Coordenadas de tu aldea</li>
+				<li> Cuarta columna: Coordenadas de aldea atacante</li>
+				<li> Quinta columna: Botas del heroe atacante</li>
+				<li> Sexta columna: Tiempo restante para el ataque</li>
+				<li> Séptima columna: Intervalo de tiempo desde que no tenías ataque y lo ves el ataque</li>
+				<li> Octava columna: Artefacto de botas</li>
+			<ul/>
+		</fieldset>
+		<fieldset>
+			<legend><b>Colores</b></legend>
+			<ul>
+				<li> ROJO: Tropa que concuerda</li>
+				<li> AZUL: Tropa con posibilidades de concordar</li>
+				<li> GRIS: Tropa que <b>NO</b> conquerda</li>
+			</ul>
+		</fieldset>
+		<div style="clear:both;"></div>
+		<h5 style="color:red;">OJO: LOS TIEMPOS PUEDEN VARIAR EN +/- 1 SEGUNDO</H5>
+		<span id="tabla"></span>
+	</body>
+</html>
